@@ -21,6 +21,10 @@ cv::Mat inputMat = cv::Mat(height, width, CV_8UC4, (unsigned char *)inputImageBu
 CVPixelBufferUnlockBaseAddress(pixelBuffer, CVPixelBufferLockFlags.readOnly);
 ```
 
+### Mat to NSData ###
+```swift
+[NSData dataWithBytes:grayMat.data length:grayMat.elemSize() * grayMat.total()];
+```
 
 
 # GPUImage
