@@ -33,11 +33,12 @@ let height = 540
 let nsData = NSData(bytes: data, length: data.count)
 let dataProvider = CGDataProvider(data: nsData)!
 
-let defaultRGBColorSpace = CGColorSpace.init(name: CGColorSpace.genericRGBLinear)!
+let defaultRGBColorSpace = CGColorSpace.init(name: CGColorSpace.sRGB)!
 
 let cgImage = CGImage(width:width, height:height,
                       bitsPerComponent:8, bitsPerPixel:32, bytesPerRow:4 * width,
-                      space:defaultRGBColorSpace, bitmapInfo:CGBitmapInfo.byteOrder32Big,
+                      space:defaultRGBColorSpace,
+                      bitmapInfo:CGBitmapInfo(rawValue: CGImageAlphaInfo.noneSkipLast.rawValue),
                       provider:dataProvider, decode:nil, shouldInterpolate:false, intent:.defaultIntent)!
 
 let uIimage = UIImage(cgImage: cgImage)
