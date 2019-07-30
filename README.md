@@ -5,12 +5,12 @@
 # Swift
 ### CIImage to UIImage ###
 ```swift
-func convert(cmage:CIImage) -> UIImage
+func convert(ciimage:CIImage) -> UIImage
 {       
-    let context:CIContext = CIContext.init(options: nil)
-    let cgImage:CGImage = context.createCGImage(cmage, from: cmage.extent)!        
-    let image:UIImage = UIImage.init(cgImage: cgImage)        
-    return image
+    let context = CIContext.init(options: nil)
+    let cgImage = context.createCGImage(ciimage, from: ciimage.extent)!        
+    let uiimage = UIImage.init(cgImage: cgImage)        
+    return uiimage
 }
 ```
 
